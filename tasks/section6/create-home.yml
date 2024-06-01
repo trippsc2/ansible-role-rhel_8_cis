@@ -1,0 +1,20 @@
+---
+- name: 6.2.10 | Ensure local interactive user home directories are configured | Check if home directories exist
+  when:
+    - user.dir is defined
+    - user.dir != ''
+  become: true
+  ansible.builtin.file:
+    path: "{{ user.dir }}"
+    state: directory
+    owner: "{{ user.id }}"
+    group: "{{ user.id }}"
+    mode: '0750'
+
+- name: 6.2.10 | Ensure local interactive user home directories are configured | Add warning
+  when:
+    - user.dir is not defined or user.dir == ''
+  ansible.builtin.include_tasks: ../add-warning.yml
+  vars:
+    _rhel8cis_warning_rule: '6.2.10'
+    _rhel8cis_warning_description: "The user '{{ user.id }}' does not have a home directory. Please remediate this appropriately."
