@@ -7,12 +7,14 @@ argument_specs:
     author: Jim Tarpley
     options:
       rhel8cis_skip_reboot:
-        description: Whether to skip the reboot step.
+        description:
+          - Whether to skip the reboot step.
         type: bool
         required: false
         default: true
       rhel8cis_level:
-        description: The CIS benchmark level to apply.
+        description:
+          - The CIS benchmark level to apply.
         type: int
         required: false
         default: 2
@@ -20,7 +22,8 @@ argument_specs:
           - 1
           - 2
       rhel8cis_machine_type:
-        description: The type of machine for which to apply the CIS benchmarks.
+        description:
+          - The type of machine for which to apply the CIS benchmarks.
         type: str
         required: false
         default: server
