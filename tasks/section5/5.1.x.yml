@@ -256,8 +256,14 @@
         - item.path != '/var/log/btmp'
         - item.path != '/var/log/utmp'
         - item.path != '/var/log/wtmp'
+        - item.path != '/var/log/lastlog'
+        - item.path != '/var/log/chrony/measurements.log'
+        - item.path != '/var/log/chrony/tracking.log'
       ansible.builtin.file:
         path: "{{ item.path }}"
-        mode: '0640'
+        mode: 'u=rw,g-wx,o-rwx'
       loop_control:
         label: "{{ item.path }}"
+      tags:
+        - always
+        - molecule-idempotence-notest

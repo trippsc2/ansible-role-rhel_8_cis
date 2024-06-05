@@ -140,7 +140,6 @@
         - item.id != "nfsnobody"
         - item.uid < 1000
         - item.shell != "/bin/false"
-        - item.shell != "/usr/sbin/nologin"
         - item.shell != "/sbin/nologin"
       ansible.builtin.user:
         name: "{{ item.id }}"
@@ -156,6 +155,10 @@
         - item.id != "sync"
         - item.id != "root"
         - item.id != "nfsnobody"
+        - item.id != "pipewire"
+        - item.id != "pulse"
+        - item.id != "gnome-initial-setup"
+        - item.id != "avahi"
         - item.uid < 1000
       ansible.builtin.user:
         name: "{{ item.id }}"

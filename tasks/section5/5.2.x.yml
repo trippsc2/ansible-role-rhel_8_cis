@@ -224,7 +224,7 @@
   become: true
   ansible.builtin.file:
     path: /var/log/audit
-    mode: '0750'
+    mode: u=rwx,g-w,o-rwx
 
 - name: 5.2.4.2 | Ensure audit log files are mode 0640 or less permissive
   when:
@@ -244,9 +244,12 @@
       loop: "{{ _rhel8cis_audit_log_files.files }}"
       ansible.builtin.file:
         path: "{{ item.path }}"
-        mode: '0640'
+        mode: 'u=rw,g-wx,o-rwx'
       loop_control:
         label: "{{ item.path }}"
+      tags:
+        - always
+        - molecule-idempotence-notest
 
 - name: 5.2.4.3 | Ensure only authorized users own audit log files
   when:
@@ -312,7 +315,7 @@
         - item.path != '/etc/audit/rules.d/99-audit.rules'
       ansible.builtin.file:
         path: "{{ item.path }}"
-        mode: '0640'
+        mode: 'u=rw,g-wx,o-rwx'
       loop_control:
         label: "{{ item.path }}"
 

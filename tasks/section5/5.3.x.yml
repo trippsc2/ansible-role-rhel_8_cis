@@ -8,6 +8,7 @@
       - aide
     state: present
   notify:
+    - _rhel8cis_configure_aide_logrotate
     - _rhel8cis_initialize_aide
 
 - name: 5.3.2 | Ensure filesystem integrity is regularly checked
