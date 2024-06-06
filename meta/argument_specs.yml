@@ -1,7 +1,7 @@
 ---
 argument_specs:
   main:
-    short_description: This role performs first steps on a freshly installed RHEL-based system.
+    short_description: RHEL 8 CIS Benchmarks
     description:
       - This role performs first steps on a freshly installed RHEL-based system.
     author: Jim Tarpley
