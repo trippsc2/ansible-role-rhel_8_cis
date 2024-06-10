@@ -1,4 +1,4 @@
-# {{ ansible_managed }}
+{{ ansible_managed | comment }}
 
 {% for server in rhel8cis_chrony_servers %}
 server {{ server.name }} {{ server.options | join(' ') }}

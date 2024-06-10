@@ -1,4 +1,4 @@
-# {{ ansible_managed }}4_1_3
+{{ ansible_managed | comment }}
 
 {% if _rhel8cis_rule_5_2_3_1_enabled %}
 -w /etc/sudoers -p wa -k scope
