@@ -1,13 +1,13 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 
-# Ansible Role: trippsc2.rhel_8_cis
-This role applies the CIS Benchmark hardening steps on RHEL8-based machines.
+# Ansible Role: ansible-role-rhel_8_cis
+DEPRECATED: Use trippsc2.cis.rhel8 instead.
 
 ## Requirements
 
 | Platform | Versions |
 | -------- | -------- |
-| EL | 8 |
+| EL | <ul><li>8</li></ul> |
 
 ## Dependencies
 

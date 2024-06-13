@@ -3,4 +3,4 @@
   hosts:
     - subjects
   roles:
-    - role: trippsc2.rhel_8_cis
+    - role: trippsc2.cis.rhel8
